@@ -25,7 +25,7 @@ function Chat() {
     }, [prevChat, reply]);
     return (
         <>
-            {newChat && <h1> Raedy for another Session ?</h1>}
+            {newChat && <h1> Ready for another Session ?</h1>}
             <div className="chats">
                 {
                     prevChat?.map((chat, idx) =>
