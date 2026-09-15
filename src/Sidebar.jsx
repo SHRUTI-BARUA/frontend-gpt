@@ -7,7 +7,7 @@ function Sidebar() {
 
     const getAllThreads = async () => {
         try {
-            const response = await fetch("http://localhost:8080/api/thread");
+            const response = await fetch("http://ec2-13-204-69-234.ap-south-1.compute.amazonaws.com:8080/api/thread");
             const res = await response.json();
             const filtereddata = res.map(thread => ({ threadId: thread.threadId, title: thread.title }));
             console.log(filtereddata);
@@ -25,7 +25,7 @@ function Sidebar() {
     }
     const deleteThread=async(threadId)=>{
         try{
-            const response=await fetch(`http://localhost:8080/api/thread/${threadId}`,{method:"DELETE"});
+            const response=await fetch(`http://ec2-13-204-69-234.ap-south-1.compute.amazonaws.com:8080/api/thread/${threadId}`,{method:"DELETE"});
             const res=response.json();
             console.log(res);
             setallThreads(prev=>prev.filter(thread=>thread.threadId !== threadId));
@@ -41,7 +41,7 @@ function Sidebar() {
     const changeThread = async (newThreadId) => {
         setThreadId(newThreadId);
         try {
-            const response = await fetch(`http://localhost:8080/api/thread/${newThreadId}`);
+            const response = await fetch(`http://ec2-13-204-69-234.ap-south-1.compute.amazonaws.com:8080/api/thread/${newThreadId}`);
             const res = await response.json();
             console.log(res);
             setprevChat(res);
